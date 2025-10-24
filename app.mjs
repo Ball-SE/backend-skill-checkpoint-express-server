@@ -16,12 +16,6 @@ app.get("/test", (req, res) => {
   return res.json("Server API is working 🚀");
 });
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ message: "Something went wrong!" });
-});
-
 app.get("/", (req, res) => {
   return res.json({
     message: "Welcome to Q&A Platform API",
@@ -31,6 +25,12 @@ app.get("/", (req, res) => {
       search: "/questions/search"
     }
   });
+});
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: "Something went wrong!" });
 });
 
 app.listen(port, () => {
