@@ -22,6 +22,17 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: "Something went wrong!" });
 });
 
+app.get("/", (req, res) => {
+  return res.json({
+    message: "Welcome to Q&A Platform API",
+    endpoints: {
+      health: "/test",
+      questions: "/questions",
+      search: "/questions/search"
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Server is running at ${port}`);
 });
