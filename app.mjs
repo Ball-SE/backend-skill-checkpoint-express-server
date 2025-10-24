@@ -5,7 +5,7 @@ import voteRouter from "./routes/vote.mjs";
 // import questionValidation from "./middlewares/question.validation.mjs";
 
 const app = express();
-const port = 4000;
+const port = 4001;
 
 app.use(express.json());
 app.use("/questions",questionsRouter);
